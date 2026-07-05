@@ -1,0 +1,5 @@
+name: ForumAlert
+version: 1.0.0
+main: me.example.forumalert.ForumAlertPlugin
+description: Sends a Minecraft chat alert when a Discord forum post is created.
+author: You
