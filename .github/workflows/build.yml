@@ -24,13 +24,17 @@ jobs:
         with:
           distribution: temurin
           java-version: '25'
-          cache: gradle
 
-      - name: Grant execute permission
-        run: chmod +x gradlew
+      - name: Install Gradle
+        uses: gradle/actions/setup-gradle@v6
+        with:
+          gradle-version: current
+
+      - name: Show Gradle version
+        run: gradle --version
 
       - name: Build plugin
-        run: ./gradlew shadowJar
+        run: gradle shadowJar
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
