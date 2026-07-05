@@ -1,8 +1,8 @@
 package me.example.forumalert;
 
-import net.dv8tion.jda.api.Activity;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.entities.Activity;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -57,7 +57,7 @@ public final class ForumAlertPlugin extends JavaPlugin {
             this.jda = builder.build();
             this.jda.awaitReady();
 
-            getLogger().info("Discord bot is ready as " + this.jda.getSelfUser().getAsTag());
+            getLogger().info("Discord bot is ready as " + this.jda.getSelfUser().getName());
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
             getLogger().severe("Discord bot startup was interrupted.");
@@ -71,7 +71,7 @@ public final class ForumAlertPlugin extends JavaPlugin {
         String text = messageTemplate.replace("{title}", threadName);
 
         Bukkit.getScheduler().runTask(this, () -> {
-            Bukkit.broadcastMessage(text);
+            Bukkit.getOnlinePlayers().forEach(player -> player.sendMessage(text));
             Bukkit.getConsoleSender().sendMessage(text);
         });
     }

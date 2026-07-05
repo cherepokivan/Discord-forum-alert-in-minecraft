@@ -1,175 +1,64 @@
-# Discord-forum-alert-in-minecraft
 # ForumAlert
 
----
+Paper plugin with a built-in Discord bot.
 
-# 🇬🇧 EN
-
-A lightweight Paper plugin with a built-in Discord bot.
-
-When a new topic is created in a Discord Forum Channel, the plugin instantly sends a notification to the Minecraft server chat.
-
-## Features
-
-- Built-in Discord bot (no separate hosting required)
-- Monitors a Discord Forum Channel
-- Detects newly created forum topics
-- Sends a configurable message to the Minecraft chat
-- Supports custom messages
-- Supports `{title}` placeholder (forum topic title)
-- Automatic configuration generation
-- Lightweight and open source
+When a new topic is created in the configured Discord forum channel, the plugin sends a message to the Minecraft server chat.
 
 ## Requirements
 
-- Paper 1.21.8+
+- Paper 26.2
 - Java 25
-
-## Installation
-
-1. Download the latest release.
-2. Put `ForumAlert.jar` into the `plugins` folder.
-3. Start the server once.
-4. Open:
-
-```
-plugins/ForumAlert/config.yml
-```
-
-5. Configure:
-
-- Discord Bot Token
-- Discord Forum Channel ID
-
-6. Restart the server.
+- Discord bot token
+- Discord forum channel ID
 
 ## Configuration
+
+After the first server start, edit `plugins/ForumAlert/config.yml`:
 
 ```yaml
 discord:
   token: "YOUR_DISCORD_BOT_TOKEN"
   forum-channel-id: 123456789012345678
 
-message:
-  text: "<green>📩 New application! {title}"
+message: "[Discord] Новая заявка! {title}"
 ```
 
-## Placeholders
+`{title}` is replaced with the Discord forum topic title.
 
-| Placeholder | Description |
-|------------|-------------|
-| `{title}` | Discord forum topic title |
+## Build
 
-Example:
+Windows:
 
-```
-📩 New application! Steve
+```powershell
+.\gradlew.bat build
 ```
 
-or
+Linux/macOS:
 
-```
-📩 New application! Builder Application
-```
-
-## Building
-
-```
-./gradlew shadowJar
+```bash
+./gradlew build
 ```
 
-Compiled plugin:
+The plugin jar is created at:
 
-```
-build/libs/ForumAlert.jar
-```
-
-## License
-
-MIT License
-
----
-
-# 🇷🇺 RU
-
-Лёгкий Paper-плагин со встроенным Discord-ботом.
-
-При создании новой темы в Discord Forum Channel плагин мгновенно отправляет уведомление в чат Minecraft.
-
-## Возможности
-
-- Встроенный Discord-бот (не требует отдельного хостинга)
-- Отслеживание Discord Forum Channel
-- Обнаружение новых тем
-- Настраиваемое сообщение
-- Поддержка плейсхолдера `{title}` (название темы)
-- Автоматическое создание конфигурации
-- Лёгкий и с открытым исходным кодом
-
-## Требования
-
-- Paper 1.21.8+
-- Java 25
-
-## Установка
-
-1. Скачайте последнюю версию.
-2. Поместите `ForumAlert.jar` в папку `plugins`.
-3. Один раз запустите сервер.
-4. Откройте:
-
-```
-plugins/ForumAlert/config.yml
+```text
+build/libs/ForumAlert-1.0.0.jar
 ```
 
-5. Укажите:
+## Русский
 
-- токен Discord-бота;
-- ID форум-канала.
+Плагин для Paper со встроенным Discord-ботом.
 
-6. Перезапустите сервер.
+Когда в указанном Discord forum channel создаётся новая тема, плагин отправляет сообщение в чат Minecraft-сервера.
 
-## Конфигурация
+Настройте `plugins/ForumAlert/config.yml`:
 
 ```yaml
 discord:
-  token: "ВАШ_ТОКЕН_БОТА"
+  token: "ТОКЕН_ВАШЕГО_DISCORD_БОТА"
   forum-channel-id: 123456789012345678
 
-message:
-  text: "<green>📩 Новая заявка! {title}"
+message: "[Discord] Новая заявка! {title}"
 ```
 
-## Плейсхолдеры
-
-| Плейсхолдер | Описание |
-|------------|----------|
-| `{title}` | Название созданной темы в Discord |
-
-Пример:
-
-```
-📩 Новая заявка! Steve
-```
-
-или
-
-```
-📩 Новая заявка! Заявка на проходку
-```
-
-## Сборка
-
-```
-./gradlew shadowJar
-```
-
-Готовый плагин находится в:
-
-```
-build/libs/ForumAlert.jar
-```
-
-## Лицензия
-
-MIT License
+`{title}` заменяется на название созданной темы.

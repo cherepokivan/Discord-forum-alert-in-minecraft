@@ -12,10 +12,10 @@ repositories {
 }
 
 dependencies {
-    compileOnly("io.papermc.paper:paper-api:26.1.2.build.+")
+    compileOnly("io.papermc.paper:paper-api:26.2.build.48-alpha")
     implementation("net.dv8tion:JDA:5.6.1") {
-    exclude(module = "opus-java")
-}
+        exclude(module = "opus-java")
+    }
 }
 
 java {
@@ -23,7 +23,16 @@ java {
 }
 
 tasks {
+    withType<JavaCompile> {
+        options.compilerArgs.add("-Xlint:deprecation")
+    }
+
+    jar {
+        enabled = false
+    }
+
     shadowJar {
+        archiveBaseName.set("ForumAlert")
         archiveClassifier.set("")
     }
     build {
