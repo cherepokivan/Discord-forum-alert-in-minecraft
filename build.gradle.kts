@@ -13,7 +13,9 @@ repositories {
 
 dependencies {
     compileOnly("io.papermc.paper:paper-api:26.1.2.build.+")
-    implementation("net.dv8tion:JDA:6.4.2")
+    implementation("net.dv8tion:JDA:5.6.1") {
+    exclude(module = "opus-java")
+}
 }
 
 java {
