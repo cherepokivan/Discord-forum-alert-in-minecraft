@@ -2,4 +2,4 @@ discord:
   token: "PASTE_BOT_TOKEN_HERE"
   forum-channel-id: 123456789012345678
 
-message: "[Discord] Новая заявка! {title}"
+message: "[Discord] New application! {title}"
