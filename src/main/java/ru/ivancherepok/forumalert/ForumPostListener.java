@@ -1,4 +1,4 @@
-package me.example.forumalert;
+package ru.ivancherepok.forumalert;
 
 import net.dv8tion.jda.api.entities.channel.ChannelType;
 import net.dv8tion.jda.api.entities.channel.concrete.ThreadChannel;
