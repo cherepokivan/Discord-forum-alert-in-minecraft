@@ -3,8 +3,8 @@ plugins {
     id("com.gradleup.shadow") version "9.4.3"
 }
 
-group = "me.example"
-version = "1.0.0"
+group = "ru.ivancherepok"
+version = "2.0.0"
 
 repositories {
     mavenCentral()
@@ -13,6 +13,7 @@ repositories {
 
 dependencies {
     compileOnly("io.papermc.paper:paper-api:26.2.build.48-alpha")
+    implementation("org.bstats:bstats-bukkit:3.2.1")
     implementation("net.dv8tion:JDA:5.6.1") {
         exclude(module = "opus-java")
     }
@@ -34,6 +35,7 @@ tasks {
     shadowJar {
         archiveBaseName.set("ForumAlert")
         archiveClassifier.set("")
+        relocate("org.bstats", "${project.group}.bstats")
     }
     build {
         dependsOn(shadowJar)
